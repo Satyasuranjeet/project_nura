@@ -1,6 +1,8 @@
 import type { AIResponse, Goal, Task, UserProfile, Transaction } from '../types';
 
-const BASE = '/api';
+// In dev, VITE_API_URL is unset → Vite proxy handles /api → localhost:8000
+// In production, set VITE_API_URL to the deployed backend URL (no trailing slash)
+const BASE = (import.meta.env.VITE_API_URL ?? '') + '/api';
 export const TOKEN_KEY = 'neurogoals_token';
 
 function getHeaders(): Record<string, string> {

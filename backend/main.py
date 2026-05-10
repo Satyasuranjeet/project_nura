@@ -112,9 +112,18 @@ async def lifespan(app: FastAPI):
 # ---------------------------------------------------------------------------
 app = FastAPI(title="NeuroGoals API", lifespan=lifespan)
 
+import os as _os
+_raw_origins = _os.getenv("ALLOWED_ORIGINS", "")
+_extra = [o.strip() for o in _raw_origins.split(",") if o.strip()]
+_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "https://project-nura.vercel.app",
+] + _extra
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:4173"],
+    allow_origins=_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
