@@ -1,0 +1,49 @@
+# ── Python ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments (the project uses backend/temp/)
+backend/temp/
+venv/
+.venv/
+env/
+.env_/
+
+# ── Secrets — NEVER commit these ─────────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*secret*
+serviceAccount*.json
+google-credentials*.json
+
+# ── Node / Frontend ───────────────────────────────────────
+node_modules/
+client/frontend/dist/
+client/frontend/dist-ssr/
+
+# Old prototype — contains real API keys, exclude entirely
+client/antigrv/
+
+# ── Logs ─────────────────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── OS / Editor ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.sw?
