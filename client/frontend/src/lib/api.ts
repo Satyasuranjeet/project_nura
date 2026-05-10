@@ -1,7 +1,8 @@
 import type { AIResponse, Goal, Task, UserProfile, Transaction } from '../types';
 
-// In dev, VITE_API_URL is unset → Vite proxy handles /api → localhost:8000
-// In production, set VITE_API_URL to the deployed backend URL (no trailing slash)
+// All requests go to the deployed backend.
+// Set VITE_API_URL in .env (or Vercel env vars) — no trailing slash.
+// Leave it empty only if you want Vite's dev proxy to localhost:8000.
 const BASE = (import.meta.env.VITE_API_URL ?? '') + '/api';
 export const TOKEN_KEY = 'neurogoals_token';
 
